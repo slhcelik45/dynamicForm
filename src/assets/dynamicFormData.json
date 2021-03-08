@@ -1,0 +1,65 @@
+[
+  {
+    "Id": "FirstName",
+    "Label": "First Name",
+    "Type": "input",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "LastName",
+    "Label": "Last Name",
+    "Type": "input",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "Mobile",
+    "Label": "Mobile Number",
+    "Type": "input",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "Email",
+    "Label": "Email",
+    "Type": "input",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "Gender",
+    "Label": "Gender",
+    "Type": "radio",
+    "Value": "Male,Female",
+    "Required": true
+  },
+  {
+    "Id": "BirthDate",
+    "Label": "Birth Date",
+    "Type": "date",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "Address",
+    "Label": "Address",
+    "Type": "textarea",
+    "Value": "",
+    "Required": true
+  },
+  {
+    "Id": "City",
+    "Label": "City",
+    "Type": "select",
+    "Value": "İstanbul,İzmir,Ankara,Bursa,Manisa,Gaziantep,Antalya,Mersin",
+    "Required": true
+  },
+  {
+    "Id": "ZipCode",
+    "Label": "Zip Code",
+    "Type": "input",
+    "Value": "",
+    "Required": true
+  }
+]

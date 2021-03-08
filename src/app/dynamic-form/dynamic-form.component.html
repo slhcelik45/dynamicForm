@@ -1,0 +1,87 @@
+<div class="row">
+  <h1>Registration Form</h1>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <form (ngSubmit)="save()" [formGroup]="createForm">
+      <div *ngFor="let control of dynamicFormArray">
+        <div [ngSwitch]="control.Type">
+          <div *ngSwitchCase="'input'">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">{{control.Label}}</label>
+              <div class="col-sm-8">
+                <input [formControlName]="control.Id" class="form-control" type="text"/>
+
+                <div *ngIf="createForm.get(control.Id).dirty || createForm.get(control.Id).touched">
+                  <small *ngIf="!createForm.get(control.Id).valid" style="color:orangered;">{{control.Label}} is
+                    Required.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'radio'">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">{{control.Label}}</label>
+              <div class="col-sm-8">
+                <label *ngFor="let val of control.Value.split(',')" class="custom-radio">
+                  <input class="mr-2" name="{{control.Id}}" type="radio" value="{{val}}"/>
+                  {{val}}
+                </label>
+                <div *ngIf="createForm.get(control.Id).dirty || createForm.get(control.Id).touched">
+                  <small *ngIf="!createForm.get(control.Id).valid" style="color:orangered;">{{control.Label}} is
+                    Required.</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div *ngSwitchCase="'date'">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">{{control.Label}}</label>
+              <div class="col-sm-8">
+                <input [formControlName]="control.Id" class="form-control" type="date"/>
+                <div *ngIf="createForm.get(control.Id).dirty || createForm.get(control.Id).touched">
+                  <small *ngIf="!createForm.get(control.Id).valid" style="color:orangered;">{{control.Label}} is
+                    Required.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'select'">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">{{control.Label}}</label>
+              <div class="col-sm-8">
+                <select [formControlName]="control.Id" class="form-control">
+                  <option value="-1">Select</option>
+                  <option *ngFor="let val of control.Value.split(',')"
+                          value="{{val}}">{{val}}</option>
+                </select>
+                <div *ngIf="createForm.get(control.Id).dirty || createForm.get(control.Id).touched">
+                  <small *ngIf="!createForm.get(control.Id).valid" style="color:orangered;">{{control.Label}} is
+                    Required.</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div *ngSwitchCase="'textarea'">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">{{control.Label}}</label>
+              <div class="col-sm-8">
+                <input [formControlName]="control.Id" class="form-control" type="text">
+                <div *ngIf="createForm.get(control.Id).dirty || createForm.get(control.Id).touched">
+                  <small *ngIf="!createForm.get(control.Id).valid" style="color:orangered;">{{control.Label}} is
+                    Required.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 mt-2">
+        <button class="btn btn-success"> Kaydet</button>
+      </div>
+    </form>
+  </div>
+</div>
+
