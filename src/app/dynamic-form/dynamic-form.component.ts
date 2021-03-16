@@ -9,7 +9,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class DynamicFormComponent implements OnInit {
 
-  createForm: FormGroup | undefined;
+  createForm: FormGroup;
   dynamicFormArray: any;
 
   constructor(
@@ -27,22 +27,18 @@ export class DynamicFormComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line:typedef
+
   createFormControl() {
     this.dynamicFormArray.forEach((data: any) => {
       if (data.Required === true) {
-        // @ts-ignore
         this.createForm.addControl(data.Id, new FormControl('', Validators.required));
       } else {
-        // @ts-ignore
         this.createForm.addControl(data.Id, new FormControl(''));
       }
     });
   }
 
-  // tslint:disable-next-line:typedef
   save() {
-    // @ts-ignore
     console.log('SAVE_DATA>', this.createForm.value);
   }
 
